@@ -1,0 +1,28 @@
+
+ <mat-toolbar color="dark">
+  <button mat-icon-button matTooltip="Menu" (click)="menuButtonClicked()">
+      <mat-icon>menu</mat-icon>
+  </button>
+  <span class="example-spacer"></span>
+  <div>{{'Restaurant' | translate }}</div>
+
+  <span class="example-spacer"></span>
+  <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon" (click)="logout()">
+
+    <mat-icon>logout</mat-icon>
+  </button>
+
+</mat-toolbar>
+
+<span class="form-inline">
+  <select
+      class="form-control"
+      #selectedLang
+      (change)="switchLang(selectedLang.value)">
+    <option *ngFor="let language of translate.getLangs()"
+      [value]="language"
+      [selected]="language === translate.currentLang">
+      {{ language }}
+    </option>
+  </select>
+</span>
