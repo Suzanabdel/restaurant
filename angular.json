@@ -18,10 +18,10 @@
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
             "outputPath": "dist/restaurant",
-            "index": "src/index.html",
+            "index": "docs/index.html",
             "main": "src/main.ts",
             "polyfills": [
-              "zone.js"
+ "zone.js"
             ],
             "tsConfig": "tsconfig.app.json",
             "inlineStyleLanguage": "scss",
@@ -30,9 +30,12 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+             "@angular/material/prebuilt-themes/indigo-pink.css",
+              "./node_modules/bootstrap/dist/css/bootstrap.min.css",
+             "node_modules/ngx-toastr/toastr.css",
+              "src/styles/styles.scss"
             ],
-            "scripts": []
+            "scripts": ["./node_modules/bootstrap/dist/js/bootstrap.min.js"]
           },
           "configurations": {
             "production": {
@@ -93,10 +96,13 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+
             ],
             "scripts": []
           }
+        },
+        "deploy": {
+          "builder": "angular-cli-ghpages:deploy"
         }
       }
     }
