@@ -1,9 +1,11 @@
-<div *ngIf= "expression">
-    <router-outlet></router-outlet>
+<div *ngIf="!isLoggedIn()">
+  <router-outlet></router-outlet>
 </div>
-<div  *ngIf= "isLoggedIn()" style="height: 100%";> 
-    <app-toolbar(isMenuButtonClicked) ="menuButtonClicked()">Toolbar</app-toolbar>
-    <app-sidebar [sidebarOpened] ="sidebarOpened">
-        <router-outlet></router-outlet>
-    </app-sidebar>
+<div *ngIf="isLoggedIn()" style="height: 100%;">
+  <app-toolbar (isMenuButtonClicked) = "menuButtonClicked()">Toolbar</app-toolbar>
+  <app-sidebar [sidebarOpened] = "sidebarOpened">
+      <div class="container-fluid">
+          <router-outlet></router-outlet>
+      </div>
+  </app-sidebar>
 </div>

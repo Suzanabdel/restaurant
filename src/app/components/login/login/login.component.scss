@@ -1,0 +1,29 @@
+.gradient-custom {
+  /* fallback for old browsers */
+  background: #b8a2cf;
+
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: -webkit-linear-gradient(to right, rgb(247, 247, 247), rgb(237, 237, 237));
+
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: linear-gradient(to right, rgb(250, 249, 251), rgb(253, 253, 254))
+  }
+  .input {
+    background-color: #f7e3e3;
+    max-width: 190px;
+    height: 40px;
+    padding: 10px;
+    /* text-align: center; */
+    border: 2px solid white;
+    border-radius: 5px;
+    /* box-shadow: 3px 3px 2px rgb(249, 255, 85); */
+  }
+
+  .input:focus {
+    color: rgb(0, 255, 255);
+    background-color: #eee1e1;
+    outline-color: rgb(0, 255, 255);
+    box-shadow: -3px -3px 15px rgb(152, 205, 205);
+    transition: .1s;
+    transition-property: box-shadow;
+  }

@@ -1,0 +1,65 @@
+
+<mat-drawer-container class="example-container">
+  <mat-drawer mode="side" [opened]="sidebarOpened" style="width: 250px;">
+      <mat-nav-list>
+          <mat-list-item class="center-flex" routerLink="dashboard" >
+              <mat-icon><span class="material-symbols-outlined">
+                home
+                </span></mat-icon><span>{{'Home'|translate}}</span>
+          </mat-list-item>
+
+          <mat-accordion>
+
+          <mat-expansion-panel [class.mat-elevation-z0]="true">
+              <mat-expansion-panel-header>
+                  {{'Products'|translate}}
+              </mat-expansion-panel-header>
+              <mat-nav-list>
+                  <a mat-list-item routerLink="product">
+                      <mat-icon>plus</mat-icon><span>{{'Add product'|translate}}</span>
+                  </a>
+              </mat-nav-list>
+          </mat-expansion-panel>
+
+          <mat-expansion-panel [class.mat-elevation-z0]="true">
+              <mat-expansion-panel-header>
+                  <mat-icon><span class="material-symbols-outlined">
+                    restaurant_menu
+                    </span></mat-icon><span>{{'Menu'|translate}}</span>
+
+              </mat-expansion-panel-header>
+              <mat-nav-list>
+                  <a mat-list-item routerLink="">
+                      <mat-icon><span class="material-symbols-outlined">
+                        cake
+                        </span></mat-icon><span>{{'Dessert'|translate}}</span>
+                  </a>
+                  <a mat-list-item routerLink="">
+                      <mat-icon><span class="material-symbols-outlined">
+                        water_full
+                        </span></mat-icon><span>{{'Drinks'|translate}}</span>
+                  </a>
+                  <a mat-list-item routerLink="">
+                  <mat-icon><span class="material-symbols-outlined">
+                    lunch_dining
+                    </span></mat-icon><span>{{'Food'|translate}}</span>
+                    </a>
+              </mat-nav-list>
+          </mat-expansion-panel>
+      </mat-accordion>
+
+      </mat-nav-list>
+
+
+
+  </mat-drawer>
+
+
+  <mat-drawer-content>
+      <div class="container-fluid" style="height: 100% !important; padding-top: 12px;">
+          <ng-content></ng-content>
+      </div>
+  </mat-drawer-content>
+</mat-drawer-container>
+
+

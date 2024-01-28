@@ -1,0 +1,48 @@
+
+<h1 mat-dialog-title>{{ actionState === 0 ? 'Preview' : (actionState === 1 ? 'Add' : 'Edit')}} Person</h1>
+
+<div mat-dialog-content style="padding-top: 20px;">
+  <form [formGroup]="formInstance">
+    <div>
+      <mat-form-field class="fullWidth" appearance="outline">
+        <mat-label>product Name *</mat-label>
+        <input matInput type="text" [readonly]="readonly"
+        name="productName" formControlName="productName">
+        <mat-error *ngIf="
+        formInstance.controls['productName']?.errors?.['required']">field required</mat-error>
+      </mat-form-field>
+    </div>
+
+    <div class="mt-5">
+      <mat-form-field class="fullWidth" appearance="outline">
+        <mat-label>price*</mat-label>
+        <input matInput type="number" name="price" formControlName="price" [readonly]="readonly"/>
+        <mat-error *ngIf="
+        formInstance.controls['price']?.errors?.['required']">field required</mat-error>
+      </mat-form-field>
+    </div>
+
+    <div class="mt-5">
+
+      <mat-form-field class="fullWidth" appearance="outline">
+        <mat-label>type *</mat-label>
+        <mat-select [disabled]="readonly" name="type" [formControlName]="!readonly ? 'type' : null" >
+          <mat-option value="Dessert">Dessert</mat-option>
+          <mat-option value="meat">meat</mat-option>
+          <mat-option value="chicken">chicken</mat-option>
+          <mat-option value="Drinks">Drinks</mat-option>
+        </mat-select>
+        <mat-error *ngIf="formInstance.controls['type']?.errors?.['required']">field required
+        </mat-error>
+      </mat-form-field>
+
+    </div>
+  </form>
+</div>
+
+<div class="mt-5" mat-dialog-actions  align="end">
+  <button  *ngIf="!readonly"  mat-raised-button color="primary"
+  [disabled]="formInstance.dirty && formInstance.errors" (click)="save()"
+    cdkFocusInitial>Save</button>
+  <button mat-raised-button mat-dialog-close>{{readonly ? 'close' : 'cancel'}}</button>
+</div>
